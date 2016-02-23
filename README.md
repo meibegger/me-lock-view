@@ -47,5 +47,15 @@ meLockView.isLocked();
 ## Package managers ##
 You can install meLockView using npm or Bower.
 
+```
+npm install me-lock-view
+````
+
+or
+
+```
+bower install me-lock-view
+``
+
 ## License ##
 meLockView is licenses under the [MIT licence](https://opensource.org/licenses/MIT).
