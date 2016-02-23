@@ -1,0 +1,26 @@
+{
+  "name": "me-lock-view",
+  "version": "0.0.1",
+  "homepage": "https://github.com/meibegger/me-lock-view",
+  "authors": [
+    "Mandana Eibegger <scripts@schoener.at>"
+  ],
+  "description": "A utility script to \"lock\" the main content of the page to prevent scrolling of the content in the background if you, for instance, open a modal dialog on top of the page",
+  "main": "src/me-lock-view.js",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "usability",
+    "scroll",
+    "scrolling background",
+    "lock view",
+    "modal",
+    "javascript"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/meibegger/me-lock-view.git"
+  }
+}
