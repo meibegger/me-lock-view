@@ -1,6 +1,6 @@
 {
   "name": "me-lock-view",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A utility script to \"lock\" the main content of the page to prevent scrolling of the content in the background if you, for instance, open a modal dialog on top of the page",
   "main": "src/me-lock-view.js",
   "repository": {
