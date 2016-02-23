@@ -75,6 +75,11 @@
         <h4 class="modal-title" id="myModalLabel">Some Modal with very long content to show scrolling behaviour</h4>
       </div>
       <div class="modal-body">
+        <hr>
+        <button type="button" class="btn btn-primary btn-lg" id="isLocked">
+          Is the view locked?
+        </button>
+        <hr>
         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
         <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
         <p>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
@@ -114,7 +119,10 @@
       modal.style.display = 'block';
       backdrop.style.display = 'block';
       if (useLockView.checked) {
+
+        /* unlock the view on opening the modal */
         meLockView.lock();
+
       }
     });
 
@@ -123,9 +131,21 @@
       modal.style.display = 'none';
       backdrop.style.display = 'none';
       if (useLockView.checked) {
+
+        /* unlock the view on close of the modal */
         meLockView.unlock();
+
       }
     });
+
+  document.getElementById('isLocked')
+    .addEventListener('click', function () {
+
+      /* check if the view is locked */
+      alert(meLockView.isLocked());
+
+    });
+
 </script>
 
 
