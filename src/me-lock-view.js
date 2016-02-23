@@ -102,7 +102,7 @@
         viewWrapper.scrollLeft = 0;
 
         // scroll the body to the initial scroll position
-        window.scrollTo(0, scrollTop);
+        window.scrollTo(scrollLeft, scrollTop);
       }
 
       // remember the unlock request
@@ -124,9 +124,11 @@
 
   function init() {
     body = document.body;
-    console.log( document.documentElement,documentElement);
     documentElement = document.documentElement;
     viewWrapper = document.querySelector('[' + viewAttribute + ']');
+    if (!viewWrapper) {
+      console.error('meLockView: view-wrapper not found');
+    }
   }
 
   if (document.readyState === 'interactive') {
