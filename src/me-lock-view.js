@@ -123,14 +123,19 @@
    */
 
   function init() {
+
+    // get the elements holding the document scroll
     body = document.body;
     documentElement = document.documentElement;
+
+    // get the view wrapper
     viewWrapper = document.querySelector('[' + viewAttribute + ']');
     if (!viewWrapper) {
       console.error('meLockView: view-wrapper not found');
     }
   }
 
+  // initialize the utility as soon as the document has finished loading. We can now access the DOM elements.
   if (document.readyState === 'interactive') {
     init();
   } else {
