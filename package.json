@@ -1,0 +1,42 @@
+{
+  "name": "me-lock-view",
+  "version": "0.0.1",
+  "description": "A utility script to \"lock\" the main content of the page to prevent scrolling of the content in the background if you, for instance, open a modal dialog on top of the page",
+  "main": "src/me-lock-view.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/meibegger/me-lock-view.git"
+  },
+  "keywords": [
+    "usability",
+    "scroll",
+    "scrolling background",
+    "lock view",
+    "modal",
+    "javascript"
+  ],
+  "license": "MIT",
+  "author": "Mandana Eibegger <scripts@schoener.at>",
+  "bugs": {
+    "url": "https://github.com/meibegger/me-lock-view/issues"
+  },
+  "homepage": "https://github.com/meibegger/me-lock-view",
+  "scripts": {
+    "gulp": "gulp"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-csso": "^1.0.1",
+    "gulp-if": "^2.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.2.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.2",
+    "require-dir": "^0.3.0"
+  },
+  "dependencies": {
+    "gulp-header": "1.7.1"
+  }
+}

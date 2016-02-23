@@ -1,0 +1,48 @@
+{
+  "styles": {
+    "root": ["src/*.scss"],
+    "dest": "dist",
+    "banner": ["/**",
+      " * <%= pkg.name %> - <%= pkg.description %>",
+      " * @version v<%= pkg.version %>",
+      " * @link <%= pkg.homepage %>",
+      " * @license <%= pkg.license %>",
+      " */",
+      ""]
+  },
+  "scripts": {
+    "uglify": {
+      "src": ["src/*.js"]
+    },
+    "dest": "dist",
+    "banner": ["/**",
+    " * <%= pkg.name %> - <%= pkg.description %>",
+    " * @version v<%= pkg.version %>",
+    " * @link <%= pkg.homepage %>",
+    " * @license <%= pkg.license %>",
+    " */",
+    ""]
+  },
+  "build": [
+    "styles",
+    "scripts-uglify"
+  ],
+  "watch": [
+    {
+      "files": [
+        "src/*.scss"
+      ],
+      "tasks": [
+        "styles"
+      ]
+    },
+    {
+      "files": [
+        "src/*.js"
+      ],
+      "tasks": [
+        "scripts-uglify"
+      ]
+    }
+  ]
+}

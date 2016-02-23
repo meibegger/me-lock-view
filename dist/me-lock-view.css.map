@@ -1,0 +1,7 @@
+/**
+ * me-lock-view - A utility script to "lock" the main content of the page to prevent scrolling of the content in the background if you, for instance, open a modal dialog on top of the page
+ * @version v0.0.1
+ * @link https://github.com/meibegger/me-lock-view
+ * @license MIT
+ */
+{"version":3,"file":"me-lock-view.css","sources":["me-lock-view.scss"],"sourcesContent":["/**\n * me-lock-view - A utility script to \"lock\" the main content of the page to prevent scrolling of the content in the\n * background if you, for instance, open a modal dialog on top of the page\n *\n * @link https://github.com/meibegger/me-lock-view\n * @license MIT\n */\n\n$view-z-index: 0 !default;\n\n[data-me-view=\"locked\"] {\n  height: 100%;\n  width: 100%;\n  overflow: hidden;\n  position: fixed;\n  z-index: $view-z-index;\n}"],"mappings":"AAAA;;;;;;GAMG;CAIH,AAAA,YAAC,CAAa,QAAQ,AAArB,EAAuB;EACtB,MAAM,EAAE,IAAK;EACb,KAAK,EAAE,IAAK;EACZ,QAAQ,EAAE,MAAO;EACjB,QAAQ,EAAE,KAAM;EAChB,OAAO,EAPM,CAAC,GAQf","names":[],"sourceRoot":"/source/"}
