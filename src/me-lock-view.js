@@ -136,7 +136,7 @@
   }
 
   // initialize the utility as soon as the document has finished loading. We can now access the DOM elements.
-  if (document.readyState === 'interactive') {
+  if (document.readyState !== 'loading') {
     init();
   } else {
     window.addEventListener('DOMContentLoaded', function loaded() {
