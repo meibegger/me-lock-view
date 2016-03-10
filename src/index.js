@@ -67,8 +67,9 @@
       if (!openLocks) { // view is not locked yet
 
         // get the current scroll values
-        var scrollLeft = body.scrollLeft || documentElement.scrollLeft
-          , scrollTop = body.scrollTop || documentElement.scrollTop;
+        var
+          scrollLeft = body.scrollLeft || documentElement.scrollLeft,
+          scrollTop = body.scrollTop || documentElement.scrollTop;
 
         // mark the view-wrapper as locked
         viewWrapper.setAttribute(viewAttribute, lockValue);
@@ -91,8 +92,9 @@
       if (openLocks === 1) { // last unlock request
 
         // get the current scroll values
-        var scrollLeft = viewWrapper.scrollLeft
-          , scrollTop = viewWrapper.scrollTop;
+        var
+          scrollLeft = viewWrapper.scrollLeft,
+          scrollTop = viewWrapper.scrollTop;
 
         // mark the view-wrapper as unlocked
         viewWrapper.setAttribute(viewAttribute, unlockValue);
