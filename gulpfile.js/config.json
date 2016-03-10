@@ -1,4 +1,7 @@
 {
+  "clean": [
+    "dist/**/.DS_Store"
+  ],
   "styles": {
     "root": ["src/*.scss"],
     "dest": "dist",
@@ -11,17 +14,23 @@
       ""]
   },
   "scripts": {
+    "src": ["src/*.js"],
     "uglify": {
-      "src": ["src/*.js"]
+      "src": ["src/*.js"],
+      "sourcemap": {
+        "includeContent": false,
+        "sourceRoot" : "../src/"
+      },
+      "rename": "me-lock-view.min.js"
     },
     "dest": "dist",
     "banner": ["/**",
-    " * <%= pkg.name %> - <%= pkg.description %>",
-    " * @version v<%= pkg.version %>",
-    " * @link <%= pkg.homepage %>",
-    " * @license <%= pkg.license %>",
-    " */",
-    ""]
+      " * @license <%= pkg.name %> <%= pkg.version %> Copyright (c) <%= pkg.author %>",
+      " * <%= pkg.description %>",
+      " * Available via the <%= pkg.license %> license.",
+      " * see: <%= pkg.homepage %> for details",
+      " */",
+      ""]
   },
   "build": [
     "styles",
