@@ -16,7 +16,7 @@ gulp.task('styles', function () {
     .pipe(plumber())
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulpif(config.scripts.browsers,prefix(config.styles.browsers)))
+    .pipe(gulpif(config.styles.browsers,prefix(config.styles.browsers)))
     .pipe(csso())
     .pipe(sourcemaps.write('./'))
     .pipe(header(banner.join('\n'), { pkg : pkg } ))
