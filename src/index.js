@@ -1,4 +1,5 @@
-;(function (root, factory) {
+;
+(function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     define([], factory);
   } else if (typeof exports === 'object') {
@@ -50,7 +51,11 @@
     documentElement,
 
   // cache the view-wrapper
-    viewWrapper
+    viewWrapper,
+
+  // before-lock subscriptions
+    beforeLockSubscriptions = {},
+    afterUnlockSubscriptions = {}
     ;
 
   /*
@@ -58,6 +63,24 @@
    functions
    ---------------
    */
+
+  /**
+   * Subscribe a function to be called before locking the screen
+   * @param id String; id of the fn - used for unsubscribing
+   * @param fn Function; fn(windowScrollLeft, windowScrollTop) called before locking the screen
+   */
+  function subscribeBeforeLock(id, fn) {
+    beforeLockSubscriptions[id] = fn;
+  }
+
+  /**
+   * Subscribe a function to be called after unlocking the screen
+   * @param id String; id of the fn - used for unsubscribing
+   * @param fn Function; fn(windowScrollLeft, windowScrollTop) called after unlocking the screen
+   */
+  function subscribeAfterUnlock(id, fn) {
+    afterUnlockSubscriptions[id] = fn;
+  }
 
   /**
    * Lock the view
@@ -70,6 +93,11 @@
         var
           scrollLeft = body.scrollLeft || documentElement.scrollLeft,
           scrollTop = body.scrollTop || documentElement.scrollTop;
+
+        // call the subscribed functions
+        for (var id in beforeLockSubscriptions) {
+          beforeLockSubscriptions[id](scrollLeft, scrollTop);
+        }
 
         // mark the view-wrapper as locked
         viewWrapper.setAttribute(viewAttribute, lockValue);
@@ -105,6 +133,11 @@
 
         // scroll the body to the initial scroll position
         window.scrollTo(scrollLeft, scrollTop);
+
+        // call the subscribed functions
+        for (var id in afterUnlockSubscriptions) {
+          afterUnlockSubscriptions[id](scrollLeft, scrollTop);
+        }
       }
 
       // remember the unlock request
@@ -114,7 +147,7 @@
     }
   }
 
-  function isLocked () {
+  function isLocked() {
     return !!openLocks;
   }
 
@@ -125,7 +158,6 @@
    */
 
   function init() {
-
     // get the elements holding the document scroll
     body = document.body;
     documentElement = document.documentElement;
@@ -154,11 +186,11 @@
    */
 
   return {
-
     lock: lock,
     unlock: unlock,
-    isLocked: isLocked
-
+    isLocked: isLocked,
+    subscribeBeforeLock: subscribeBeforeLock,
+    subscribeAfterUnlock: subscribeAfterUnlock
   };
 
 }));
