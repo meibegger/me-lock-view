@@ -114,9 +114,16 @@
     }
   }
 
-  function unlock() {
+  /**
+   * Unlock the view
+   * @param real bool; optional; default true; if false, only remove the lock from the count, but keep the view locked
+   */
+  function unlock(real) {
     if (viewWrapper) {
-      if (openLocks === 1) { // last unlock request
+      if (typeof real === 'undefined') {
+        real = true;
+      }
+      if (real && openLocks === 1) { // last unlock request
 
         // get the current scroll values
         var
